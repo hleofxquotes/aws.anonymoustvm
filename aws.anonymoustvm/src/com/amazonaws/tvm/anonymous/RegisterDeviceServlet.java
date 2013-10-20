@@ -23,6 +23,12 @@ import com.amazonaws.tvm.Utilities;
 
 public class RegisterDeviceServlet extends RootServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected String processRequest( HttpServletRequest request, HttpServletResponse response ) throws Exception {
 		log.info( "entering processRequest" );
 		try {

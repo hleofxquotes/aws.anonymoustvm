@@ -27,10 +27,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public abstract class RootServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected static final Logger log = TokenVendingMachineLogger.getLogger();
 	
 	protected abstract String processRequest( HttpServletRequest request, HttpServletResponse response ) throws Exception;
 	
+	@Override
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws IOException, ServletException {
 		try {
 			String forwardTo = null;
@@ -51,6 +56,7 @@ public abstract class RootServlet extends HttpServlet {
 		}
 	}
 	
+	@Override
 	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException, ServletException {
 		this.doGet( request, response );
 	}
@@ -58,11 +64,11 @@ public abstract class RootServlet extends HttpServlet {
 	protected void handleException( HttpServletRequest request, HttpServletResponse response, Exception exception ) throws Exception {
 		if ( exception instanceof com.amazonaws.tvm.MissingParameterException ) {
 			log.warning( "Missing input parameter. Setting Http status code " + HttpServletResponse.SC_BAD_REQUEST );
-			this.sendErrorResponse( HttpServletResponse.SC_BAD_REQUEST, response );
+			RootServlet.sendErrorResponse( HttpServletResponse.SC_BAD_REQUEST, response );
 		}
 		else {
 			log.severe( "Unexpected exception: [" + exception.getMessage() + "] Setting Http status code " + HttpServletResponse.SC_INTERNAL_SERVER_ERROR );
-			this.sendErrorResponse( HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response );
+			RootServlet.sendErrorResponse( HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response );
 		}
 	}
 	

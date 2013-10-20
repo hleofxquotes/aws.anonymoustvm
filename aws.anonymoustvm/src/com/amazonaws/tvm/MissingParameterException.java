@@ -17,6 +17,11 @@ package com.amazonaws.tvm;
 
 public class MissingParameterException extends Exception {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public MissingParameterException( String parameter ) {
 		super( "The parameter [" + parameter + "] is required." );
 	}

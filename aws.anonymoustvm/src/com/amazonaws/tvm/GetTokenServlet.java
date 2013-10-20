@@ -27,6 +27,11 @@ import com.amazonaws.tvm.anonymous.AnonymousTokenVendingMachine;
  */
 public class GetTokenServlet extends RootServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected String processRequest( HttpServletRequest request, HttpServletResponse response ) throws Exception {
 		log.info( "processing request" );

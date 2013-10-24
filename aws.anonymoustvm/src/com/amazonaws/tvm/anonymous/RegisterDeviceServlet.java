@@ -60,5 +60,4 @@ public class RegisterDeviceServlet extends RootServlet {
 			log.info( "leaving processRequest" );
 		}
 	}
-	
 }

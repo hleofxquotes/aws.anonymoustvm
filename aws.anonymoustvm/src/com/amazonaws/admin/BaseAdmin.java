@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.amazonaws.auth.BasicAWSCredentials;
-
 import com.amazonaws.services.simpledb.AmazonSimpleDBClient;
 import com.amazonaws.services.simpledb.model.Attribute;
 import com.amazonaws.services.simpledb.model.ListDomainsRequest;
 import com.amazonaws.services.simpledb.model.ListDomainsResult;
 import com.amazonaws.services.simpledb.model.SelectRequest;
 import com.amazonaws.services.simpledb.model.SelectResult;
-
 import com.amazonaws.tvm.MissingParameterException;
 
 public class BaseAdmin {
